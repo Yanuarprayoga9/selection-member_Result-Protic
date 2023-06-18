@@ -43,7 +43,7 @@ const users =[
         <h1 class="text-danger">Maaf, ${user.nama} Anda tidak lolos sebagai pengurus Protic.</h1>
         <p class="">Jangan menyerah! Tetap semangat dan coba lagi lain kali.</p>
       `;
-      resultDiv.classList.remove('d-none');
+      resultDiv.classList.remove('hapus');
     }
   }
   
