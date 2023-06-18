@@ -4,7 +4,6 @@ const users = [
     { nim: '220302074', nama: 'Budi Santoso', divisi: 'Web', lolos: true },
     { nim: '220302075', nama: 'Dewi Indriani', divisi: 'Mobile', lolos: true },
     { nim: '220302076', nama: 'Ahmad Ridwan', divisi: 'Web', lolos: true }
-    // Tambahkan data pengguna lainnya di sini
   ];
   
   function cekHasil() {
