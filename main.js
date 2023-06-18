@@ -1,6 +1,6 @@
 const users = [
     { nim: '220302072', nama: 'Yanuar Prayoga', divisi: 'Web' },
-    { nim: '220302073', nama: 'Rina Amelia', divisi: 'Mobile' },
+    { nim: '220302073', nama: 'Achmad choerul', divisi: 'Mobile' },
     { nim: '220302074', nama: 'Budi Santoso', divisi: 'Web' },
     { nim: '220302075', nama: 'Dewi Indriani', divisi: 'Mobile' },
     { nim: '220302076', nama: 'Ahmad Ridwan', divisi: 'Web' }
@@ -16,7 +16,7 @@ const users = [
       const encodedMessage = encodeURIComponent(message);
       window.location.href = `pengumuman.html?message=${encodedMessage}`; // Mengarahkan ke halaman pengumuman dengan pesan pengumuman sebagai parameter URL
     } else {
-      const message = 'Maaf, NIM Anda tidak terdaftar sebagai pengurus Protic.';
+      const message = 'Maaf ${user.nama}, Belum lolos.';
       const encodedMessage = encodeURIComponent(message);
       window.location.href = `pengumuman.html?message=${encodedMessage}`; // Mengarahkan ke halaman pengumuman dengan pesan pengumuman sebagai parameter URL
     }
