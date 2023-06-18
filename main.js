@@ -1,23 +1,27 @@
 const users = [
-    { nim: '220302072', nama: 'Yanuar Prayoga', divisi: 'Web' },
-    { nim: '220302073', nama: 'Achmad choerul', divisi: 'Mobile' },
-    { nim: '220302074', nama: 'Budi Santoso', divisi: 'Web' },
-    { nim: '220302075', nama: 'Dewi Indriani', divisi: 'Mobile' },
-    { nim: '220302076', nama: 'Ahmad Ridwan', divisi: 'Web' }
+    { nim: '220302072', nama: 'Yanuar Prayoga', divisi: 'Web', lolos: false },
+    { nim: '220302073', nama: 'Rina Amelia', divisi: 'Mobile', lolos: true },
+    { nim: '220302074', nama: 'Budi Santoso', divisi: 'Web', lolos: true },
+    { nim: '220302075', nama: 'Dewi Indriani', divisi: 'Mobile', lolos: true },
+    { nim: '220302076', nama: 'Ahmad Ridwan', divisi: 'Web', lolos: true }
     // Tambahkan data pengguna lainnya di sini
   ];
-
+  
   function cekHasil() {
     const nimInput = document.getElementById('nimInput').value;
-    const user = users.find(user => user.nim === nimInput);
   
-    if (user) {
-      const message = `Selamat ${user.nama}, Anda diterima sebagai pengurus Protic di divisi ${user.divisi}.`;
-      const encodedMessage = encodeURIComponent(message);
-      window.location.href = `pengumuman.html?message=${encodedMessage}`; // Mengarahkan ke halaman pengumuman dengan pesan pengumuman sebagai parameter URL
-    } else {
-      const message = 'Maaf ${user.nama}, Belum lolos.';
-      const encodedMessage = encodeURIComponent(message);
-      window.location.href = `pengumuman.html?message=${encodedMessage}`; // Mengarahkan ke halaman pengumuman dengan pesan pengumuman sebagai parameter URL
+    const user = users.find(user => user.nim === nimInput);
+    if (user && user.lolos) {
+      localStorage.setItem('user', JSON.stringify(user));
+      window.location.href = 'pengumuman.html';
+    }
+     else {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <h1 class="text-danger">Maaf,${user.nama} Anda tidak lolos sebagai pengurus Protic.</h1>
+        <p class="">Jangan menyerah! Tetap semangat dan coba lagi lain kali.</p>
+      `;
+      resultDiv.classList.remove('d-none');
     }
   }
+  

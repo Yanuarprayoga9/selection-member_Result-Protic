@@ -1,21 +1,44 @@
-<div id="announcement" class="container">
-    <h1 class="text-success text-center py-5">Pengumuman Pengurus Protic</h1>
-    <div class="container">
-      <div id="result" class="my-3">
-      </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Pengumuman</title>
+</head>
+<body>
+  <div class="container ">
+    <h1 class="text-center text-success pt-5">Pengumuman Pengurus Protic</h1>
+    <div id="pengumuman" class="mt-5 border border-2 rounded"></div>
   </div>
 
+  <!-- JavaScript -->
+  <script src="js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const announcementMessage = urlParams.get('message');
-  
-      if (announcementMessage) {
-        const resultDiv = document.getElementById('result');
-        const decodedMessage = decodeURIComponent(announcementMessage);
-        resultDiv.innerHTML = `<p class="text-success">${decodedMessage}</p>`;
+      const user = JSON.parse(localStorage.getItem('user'));
+      localStorage.removeItem('user');
+
+      if (user) {
+        const pengumumanDiv = document.getElementById('pengumuman');
+        const p = document.createElement('p');
+
+        if (user.lolos) {
+          p.innerHTML = `
+            <div class="p-5">
+                <span class="text-success">Selamat! Anda lolos sebagai pengurus Protic.</span><br>
+                <h2>Nama    : ${user.nama}</h2> <br>
+                <h2>Divisi  : ${user.divisi}</h2> <br>
+                <h2>NIM     : ${user.nim}</h2>
+            </div>
+          `;
+        }
+        pengumumanDiv.appendChild(p);
       }
     });
   </script>
-  
+</body>
+</html>
