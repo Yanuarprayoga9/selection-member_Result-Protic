@@ -1,0 +1,21 @@
+<div id="announcement" class="container">
+    <h1 class="text-success text-center py-5">Pengumuman Pengurus Protic</h1>
+    <div class="container">
+      <div id="result" class="my-3">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const announcementMessage = urlParams.get('message');
+  
+      if (announcementMessage) {
+        const resultDiv = document.getElementById('result');
+        const decodedMessage = decodeURIComponent(announcementMessage);
+        resultDiv.innerHTML = `<p class="text-success">${decodedMessage}</p>`;
+      }
+    });
+  </script>
+  
