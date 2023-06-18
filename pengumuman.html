@@ -13,6 +13,8 @@
     <h1 class="text-center text-success pt-5">Pengumuman Pengurus Protic</h1>
     <div id="pengumuman" class="mt-5 border border-2 rounded"></div>
   </div>
+   
+
 
   
   <script src="js/bootstrap.bundle.min.js"></script>
@@ -28,10 +30,12 @@
         if (user.lolos) {
           p.innerHTML = `
             <div class="p-5">
-                <span class="text-success">Selamat! Anda lolos sebagai pengurus Protic.</span><br>
-                <h2>Nama    : ${user.nama}</h2> <br>
+                <span class="text-success ">Selamat! Anda lolos sebagai pengurus Protic.</span><br>
+                <h2 class="pt-4">Nama    : ${user.nama}</h2> <br>
                 <h2>Divisi  : ${user.divisi}</h2> <br>
                 <h2>NIM     : ${user.nim}</h2>
+                <p>Selamat atas lolos seleksi dan bergabung dengan tim kami! Kami sangat senang memiliki Anda di dalam tim ini. Bersama-sama, kita akan mencapai prestasi yang luar biasa!Selamat bergabung dan semoga kolaborasi kita sukses!</p>
+                <a href="https://chat.whatsapp.com/[kode_group_whatsapp]">Klik di sini untuk bergabung dengan grup WhatsApp</a>
             </div>
           `;
         }
